@@ -1,5 +1,11 @@
-\documentclass{article}
+\documentclass[twoside,12pt]{report}
 \usepackage[utf8]{inputenc}
+
+\usepackage[width=175mm,top=20mm,bottom=20mm]{geometry}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
 
 \title{Applied Data Capstone}
 
@@ -9,7 +15,16 @@
 \begin{document}
 
 \maketitle
-\textbf{Applied Data Capstone}
-\section{Introduction}
+
+\chapter*{Introduction}
+
+
+%Clearly define a problem or an idea of your choice, where you would need to leverage the Foursquare location data to solve or execute. Remember that data science problems always target an audience and are meant to help a group of stakeholders solve a problem, so make sure that you explicitly describe your audience and why they would care about your problem.
+In this project, we plan to leverage location and median home value data in Cleveland, Ohio from Zillow and Foursquare API to determine any relationship between venues and the values of nearby homes.  This relationship is useful to city planners in determining zoning and its effect on home prices, as well as to commercial enterprises and the ideal locations for their businesses.
+
+\chapter*{Data}
+
+%Describe the data that you will be using to solve the problem or execute your idea. Remember that you will need to use the Foursquare location data to solve the problem or execute your idea. You can absolutely use other datasets in combination with the Foursquare location data. So make sure that you provide adequate explanation and discussion, with examples, of the data that you will be using, even if it is only Foursquare location data.
+We will use the Zillow API to to access the name, latitude, longitude, and median home value for each neighborhood in the city of Cleveland, Ohio.  Then, we will use the latitude and longitude data for each neighborhood, along with the Foursquare API, to find nearby venues.
 
 \end{document}
