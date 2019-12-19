@@ -28,6 +28,8 @@ In this project, we plan to leverage location and median home value estimate dat
 
 First, Cleveland neighborhood data was pulled from Zillow.  The data was parsed into a dictionary from the original XML.  The dictionary was combed through to create a dataframe with the name, latitude, longitude, and 'Zindex' (median home value estimate) of each neighborhood.  Neighborhoods without 'Zindex' estimates were thrown out.
 
+
+
 Next, venue data was pulled from Foursquare for venues within 2000 meters of each neighborhoods latitude and longitude.  This data was parsed into dictionary form from json.  This dictionary was combed through to create a dataframe with the neighborhood, name, latitude, longitude, and category for each venue.  This dataframe was converted via one-hot encoding, the Neighborhood column was added back in, and the columns reordered for ease of reading. 
 
 \chapter*{Methodology}
