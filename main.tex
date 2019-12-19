@@ -3,10 +3,9 @@
 
 \usepackage[width=175mm,top=20mm,bottom=20mm]{geometry}
 \setlength{\parskip}{1em}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\renewcommand{\baselinestretch}{1.5}
 
+\renewcommand{\baselinestretch}{1.5}
+\usepackage{graphicx}
 \title{Applied Data Capstone}
 
 \author{L. Gagne}
@@ -28,6 +27,9 @@ In this project, we plan to leverage location and median home value estimate dat
 
 First, Cleveland neighborhood data was pulled from Zillow.  The data was parsed into a dictionary from the original XML.  The dictionary was combed through to create a dataframe with the name, latitude, longitude, and 'Zindex' (median home value estimate) of each neighborhood.  Neighborhoods without 'Zindex' estimates were thrown out.
 
+\begin{center}
+\includegraphics[scale=.5]{Images/CleNeighborhoods.png}    
+\end{center}
 
 
 Next, venue data was pulled from Foursquare for venues within 2000 meters of each neighborhoods latitude and longitude.  This data was parsed into dictionary form from json.  This dictionary was combed through to create a dataframe with the neighborhood, name, latitude, longitude, and category for each venue.  This dataframe was converted via one-hot encoding, the Neighborhood column was added back in, and the columns reordered for ease of reading. 
@@ -51,6 +53,10 @@ Finally, a secondary approach was tested.  Using the 'one-hot' dataframe grouped
 
 The K means clustering grouped by sum resulted in 5 clusters.
 
+\begin{center}
+    \includegraphics[scale=.5]{Images/CleSum.png}
+
+
 \begin{tabular}{c|c|c|c}
 Cluster & Number of Neighborhoods & Value Range\\ \hline
 0 & 21 & 37686 - 68514\\
@@ -59,8 +65,12 @@ Cluster & Number of Neighborhoods & Value Range\\ \hline
 3 & 1 & 86000 - 86000 \\
 4&1&84900 - 84900\\
 \end{tabular}
+\end{center}
 
+\newpage
 The K means clustering grouped by mean resulted in 4 clusters.
+\begin{center}
+  \includegraphics[scale=.5]{Images/CleMean.png}  
 
 \begin{tabular}{c|c|c|c}
 Cluster & Number of Neighborhoods & Value Range\\ \hline
@@ -69,7 +79,7 @@ Cluster & Number of Neighborhoods & Value Range\\ \hline
 2 & 16 & 48309 - 90903 \\
 3 & 2 & 33491 - 65441 \\
 \end{tabular}
-
+\end{center}
 The Multiple Linear Regression scored an average of -0.57.  This model is NOT a good fit. 
 
 \chapter*{Discussion}
@@ -77,6 +87,7 @@ The Multiple Linear Regression scored an average of -0.57.  This model is NOT a 
 
 The K means clustering grouped by sum resulted in 5 clusters.  After inspecting the top 5 venue categories and median home values for each category, the following observations can be made.
 
+\begin{center}
 \begin{tabular}{c|c|c|c|l}
 Cluster & Number of Neighborhoods & Value Range&Venues\\ \hline
 0 & 21 & 37686 - 68514& Sandwiches, fast food, and discounts\\
@@ -85,9 +96,11 @@ Cluster & Number of Neighborhoods & Value Range&Venues\\ \hline
 3 & 1 & 86000 - 86000 & Ohio City \\
 4&1&84900 - 84900 & Downtown\\
 \end{tabular}
+\end{center}
 
 The K means clustering grouped by mean resulted in 4 clusters.  After inspecting the top 5 venue categories and median home values for each category, the following observations can be made.
 
+\begin{center}
 \begin{tabular}{c|c|c|c|l}
 Cluster & Number of Neighborhoods & Value Range&Venues\\ \hline
 0 & 10 & 38404 - 57876&Sandwiches, fast food, and discounts\\
@@ -95,7 +108,7 @@ Cluster & Number of Neighborhoods & Value Range&Venues\\ \hline
 2 & 16 & 48309 - 90903 & Pizza and Beer \\
 3 & 2 & 33491 - 65441 & The Zoo\\
 \end{tabular}
-
+\end{center}
 
 Based on these results, the following observations and conclusions can be made.
 
